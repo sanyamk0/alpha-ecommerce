@@ -23,6 +23,8 @@ import AdminHome from "./pages/AdminHome";
 import AdminProductDetailPage from "./pages/AdminProductDetailPage";
 import AdminProductFormPage from "./pages/AdminProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
+import { positions, Provider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
 
 const router = createBrowserRouter([
   {
@@ -130,6 +132,12 @@ const router = createBrowserRouter([
     element: <PageNotFound></PageNotFound>,
   },
 ]);
+
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT,
+};
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
@@ -141,7 +149,9 @@ function App() {
   }, [dispatch, user]);
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <Provider template={AlertTemplate} {...options}>
+        <RouterProvider router={router} />
+      </Provider>
     </div>
   );
 }

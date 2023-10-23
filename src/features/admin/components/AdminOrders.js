@@ -126,6 +126,7 @@ function AdminOrders() {
                             <img
                               className="w-6 h-6 rounded-full"
                               src={item.thumbnail}
+                              alt={item.title}
                             />
                           </div>
                           <span>

@@ -35,7 +35,8 @@
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
         "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 3,
@@ -3008,6 +3009,62 @@
       },
       "status": "pending",
       "id": 11
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1240,
+          "discountPercentage": 15.46,
+          "rating": 0,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/3/1.jpg",
+            "https://i.dummyjson.com/data/products/3/1.jpg",
+            "https://i.dummyjson.com/data/products/3/1.jpg",
+            "https://i.dummyjson.com/data/products/3/thumbnail.jpg"
+          ],
+          "productId": 3,
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1048,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 12
     }
   ]
 }

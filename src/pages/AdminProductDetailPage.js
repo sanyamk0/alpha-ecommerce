@@ -1,4 +1,5 @@
 import AdminProductDetail from "../features/admin/components/AdminProductDetail";
+import Footer from "../features/common/Footer";
 import Navbar from "../features/navbar/Navbar";
 
 function AdminProductDetailPage() {
@@ -7,6 +8,7 @@ function AdminProductDetailPage() {
       <Navbar>
         <AdminProductDetail></AdminProductDetail>
       </Navbar>
+      <Footer></Footer>
     </div>
   );
 }

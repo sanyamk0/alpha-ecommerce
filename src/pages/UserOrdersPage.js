@@ -1,3 +1,4 @@
+import Footer from "../features/common/Footer";
 import Navbar from "../features/navbar/Navbar";
 import UserOrders from "../features/user/components/UserOrders";
 
@@ -10,6 +11,7 @@ function UserOrdersPage() {
         </h1>
         <UserOrders></UserOrders>
       </Navbar>
+      <Footer></Footer>
     </div>
   );
 }

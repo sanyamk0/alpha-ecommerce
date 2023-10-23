@@ -5,8 +5,6 @@ import {
   selectUserInfo,
   selectUserOrders,
 } from "../userSlice";
-import { selectLoggedInUser } from "../../auth/authSlice";
-import { Link } from "react-router-dom";
 import { discountedPrice } from "../../../app/constants";
 
 export default function UserOrders() {
