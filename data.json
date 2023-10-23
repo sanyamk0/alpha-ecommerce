@@ -1430,7 +1430,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
-      "images": ["https://i.dummyjson.com/data/products/78/thumbnail.jpg"]
+      "images": [
+        "https://i.dummyjson.com/data/products/78/thumbnail.jpg"
+      ]
     },
     {
       "id": 79,
@@ -1443,7 +1445,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://i.dummyjson.com/data/products/79/thumbnail.jpg",
-      "images": ["https://i.dummyjson.com/data/products/79/1.jpg"]
+      "images": [
+        "https://i.dummyjson.com/data/products/79/1.jpg"
+      ]
     },
     {
       "id": 80,
@@ -2441,7 +2445,7 @@
         "state": "Madhya Pradesh",
         "pinCode": "462003"
       },
-      "status": "pending",
+      "status": "delivered",
       "id": 1
     },
     {
@@ -2506,6 +2510,504 @@
       },
       "status": "pending",
       "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 8970,
+          "discountPercentage": 17.94,
+          "rating": 0,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 7361,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 2802,
+          "discountPercentage": 17.91,
+          "rating": 0,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/4/1.jpg",
+            "https://i.dummyjson.com/data/products/4/2.jpg",
+            "https://i.dummyjson.com/data/products/4/3.jpg",
+            "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2300,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "title": "HP Pavilion 15-DK1056WM",
+          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+          "price": 1099,
+          "discountPercentage": 6.18,
+          "rating": 4.43,
+          "stock": 89,
+          "brand": "HP Pavilion",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+          "images": [
+            "https://i.dummyjson.com/data/products/10/1.jpg",
+            "https://i.dummyjson.com/data/products/10/2.jpg",
+            "https://i.dummyjson.com/data/products/10/3.jpg",
+            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1031,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "title": "Samsung Galaxy Book",
+          "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+          "price": 149,
+          "discountPercentage": 4.15,
+          "rating": 4.25,
+          "stock": 50,
+          "brand": "Samsung",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/7/1.jpg",
+            "https://i.dummyjson.com/data/products/7/2.jpg",
+            "https://i.dummyjson.com/data/products/7/3.jpg",
+            "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 143,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1346,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1346,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 8
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 8970,
+          "discountPercentage": 17.94,
+          "rating": 0,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 7361,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "items": [
+        {
+          "title": "Infinix INBOOK",
+          "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+          "price": 1099,
+          "discountPercentage": 11.83,
+          "rating": 4.54,
+          "stock": 96,
+          "brand": "Infinix",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/9/1.jpg",
+            "https://i.dummyjson.com/data/products/9/2.png",
+            "https://i.dummyjson.com/data/products/9/3.png",
+            "https://i.dummyjson.com/data/products/9/4.jpg",
+            "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 969,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "items": [
+        {
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 2802,
+          "discountPercentage": 17.91,
+          "rating": 0,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/4/1.jpg",
+            "https://i.dummyjson.com/data/products/4/2.jpg",
+            "https://i.dummyjson.com/data/products/4/3.jpg",
+            "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2300,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Qwerty@123",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "sanyam",
+            "email": "sanyamkumar069@gmail.com",
+            "phone": "09518863297",
+            "street": "S1, LIG-176, Bhishm Kunj",
+            "city": "Bhopal",
+            "state": "Madhya Pradesh",
+            "pinCode": "462003"
+          }
+        ],
+        "id": 1
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "sanyam",
+        "email": "sanyamkumar069@gmail.com",
+        "phone": "09518863297",
+        "street": "S1, LIG-176, Bhishm Kunj",
+        "city": "Bhopal",
+        "state": "Madhya Pradesh",
+        "pinCode": "462003"
+      },
+      "status": "pending",
+      "id": 11
     }
   ]
 }
