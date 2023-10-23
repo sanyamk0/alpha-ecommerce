@@ -8,7 +8,6 @@ export default function ForgotPassword() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  console.log(errors);
 
   return (
     <>
@@ -25,7 +24,6 @@ export default function ForgotPassword() {
             noValidate
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
-              console.log(data);
               //TODO:Implementation on backend with email
             })}
           >

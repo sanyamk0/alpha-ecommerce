@@ -78,7 +78,6 @@ export default function UserProfile() {
               onSubmit={handleSubmit((data) => {
                 handleAdd(data);
                 reset();
-                console.log(data);
               })}
             >
               <div className="space-y-12">
@@ -246,7 +245,6 @@ export default function UserProfile() {
                   onSubmit={handleSubmit((data) => {
                     handleEdit(data, index);
                     reset();
-                    console.log(data);
                   })}
                 >
                   <div className="space-y-12">

@@ -89,7 +89,6 @@ function Checkout() {
                   })
                 );
                 reset();
-                console.log(data);
               })}
             >
               <div className="space-y-12">

@@ -12,7 +12,6 @@ export default function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  console.log(errors);
   const user = useSelector(selectLoggedInUser);
   return (
     <>
@@ -39,7 +38,6 @@ export default function Signup() {
                   //TODO:this role can be directly given on backend
                 })
               );
-              console.log(data);
             })}
           >
             <div>
