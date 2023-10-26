@@ -81,7 +81,6 @@ function Navbar({ children }) {
                         {items.length}
                       </span>
                     )}
-
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
                       <div>
@@ -139,7 +138,6 @@ function Navbar({ children }) {
                 </div>
               </div>
             </div>
-
             <Disclosure.Panel className="md:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                 {navigation.map((item) => (
@@ -170,6 +168,7 @@ function Navbar({ children }) {
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium leading-none text-white">
+                      {/* this should come from userInfo */}
                       {user.name}
                     </div>
                     <div className="text-sm font-medium leading-none text-gray-400">
@@ -210,7 +209,6 @@ function Navbar({ children }) {
           </>
         )}
       </Disclosure>
-
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">

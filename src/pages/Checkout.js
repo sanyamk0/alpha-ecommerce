@@ -7,7 +7,7 @@ import {
   updateCartAsync,
 } from "../features/cart/cartSlice";
 import { useForm } from "react-hook-form";
-import { updateUserAsync } from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/user/userSlice";
 import {
   createOrderAsync,
   selectCurrentOrder,
@@ -16,36 +16,43 @@ import { selectUserInfo } from "../features/user/userSlice";
 import { discountedPrice } from "../app/constants";
 
 function Checkout() {
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState("cash");
+
   const dispatch = useDispatch();
   const user = useSelector(selectUserInfo);
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);
+
   const totalAmount = items.reduce(
-    (amount, item) => discountedPrice(item) * item.quantity + amount,
+    (amount, item) => discountedPrice(item.product) * item.quantity + amount,
     0
   );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
-  const [selectedAddress, setSelectedAddress] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState("cash");
+
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
+
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
+
   const handleAddress = (e) => {
     setSelectedAddress(user.addresses[e.target.value]);
   };
+
   const handlePayment = (e) => {
     setPaymentMethod(e.target.value);
   };
+
   const handleOrder = (e) => {
     if (selectedAddress && paymentMethod) {
       const order = {
         items,
         totalAmount,
         totalItems,
-        user,
+        user: user.id,
         paymentMethod,
         selectedAddress,
         status: "pending", //other status can be delivered, received
@@ -60,12 +67,14 @@ function Checkout() {
     //TODO:clear cart after order
     //TODO:On server change the stock number of items
   };
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
@@ -99,7 +108,6 @@ function Checkout() {
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Use a permanent address where you can receive mail.
                   </p>
-
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-4">
                       <label
@@ -119,7 +127,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-4">
                       <label
                         htmlFor="email"
@@ -138,7 +145,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-3">
                       <label
                         htmlFor="phone"
@@ -157,7 +163,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="col-span-full">
                       <label
                         htmlFor="street"
@@ -176,7 +181,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-2 sm:col-start-1">
                       <label
                         htmlFor="city"
@@ -195,7 +199,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-2">
                       <label
                         htmlFor="state"
@@ -214,7 +217,6 @@ function Checkout() {
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-2">
                       <label
                         htmlFor="pinCode"
@@ -355,22 +357,25 @@ function Checkout() {
                       <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            src={item.thumbnail}
-                            alt={item.title}
+                            src={item.product.thumbnail}
+                            alt={item.product.title}
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
-
                         <div className="ml-4 flex flex-1 flex-col">
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <a href={item.href}>{item.title}</a>
+                                <a href={item.product.id}>
+                                  {item.product.title}
+                                </a>
                               </h3>
-                              <p className="ml-4">${discountedPrice(item)}</p>
+                              <p className="ml-4">
+                                ${discountedPrice(item.product)}
+                              </p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
-                              {item.brand}
+                              {item.product.brand}
                             </p>
                           </div>
                           <div className="flex flex-1 items-end justify-between text-sm">
@@ -392,7 +397,6 @@ function Checkout() {
                                 <option value="5">5</option>
                               </select>
                             </div>
-
                             <div className="flex">
                               <button
                                 onClick={(e) => handleRemove(e, item.id)}
@@ -409,7 +413,6 @@ function Checkout() {
                   </ul>
                 </div>
               </div>
-
               <div className="border-t border-gray-200 px-2 py-6 sm:px-2">
                 <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                   <p>Subtotal</p>

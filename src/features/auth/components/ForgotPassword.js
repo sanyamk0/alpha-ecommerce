@@ -18,7 +18,6 @@ export default function ForgotPassword() {
             Enter Email to Reset Password
           </h2>
         </div>
-
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
@@ -52,7 +51,6 @@ export default function ForgotPassword() {
                 )}
               </div>
             </div>
-
             <div>
               <button
                 type="submit"
@@ -62,7 +60,6 @@ export default function ForgotPassword() {
               </button>
             </div>
           </form>
-
           <p className="mt-10 text-center text-sm text-gray-500">
             Send me back to?{" "}
             <Link

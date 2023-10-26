@@ -12,22 +12,22 @@ export const createOrderAsync = createAsyncThunk(
   "order/createOrder",
   async (order) => {
     const response = await createOrder(order);
-
     return response.data;
   }
 );
-export const updateOrderAsync = createAsyncThunk(
-  "order/updateOrder",
-  async (order) => {
-    const response = await updateOrder(order);
 
-    return response.data;
-  }
-);
 export const fetchAllOrdersAsync = createAsyncThunk(
   "order/fetchAllOrders",
   async ({ sort, pagination }) => {
     const response = await fetchAllOrders(sort, pagination);
+    return response.data;
+  }
+);
+
+export const updateOrderAsync = createAsyncThunk(
+  "order/updateOrder",
+  async (order) => {
+    const response = await updateOrder(order);
     return response.data;
   }
 );
@@ -40,7 +40,6 @@ export const orderSlice = createSlice({
       state.currentOrder = null;
     },
   },
-
   extraReducers: (builder) => {
     builder
       .addCase(createOrderAsync.pending, (state) => {

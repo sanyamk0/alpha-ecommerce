@@ -7,8 +7,10 @@ import { resetOrder } from "../features/order/orderSlice";
 
 function OrderSuccesPage() {
   const params = useParams();
+
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+
   //here we can do reset of this cart and order
   useEffect(() => {
     //reset cart
@@ -16,6 +18,7 @@ function OrderSuccesPage() {
     //reset currentOrder
     dispatch(resetOrder());
   }, [dispatch, user]);
+
   return (
     <>
       {!params.id && <Navigate to="/" replace={true}></Navigate>}

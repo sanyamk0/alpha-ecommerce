@@ -16,8 +16,13 @@ import { useState } from "react";
 
 function ProductForm() {
   const [openModal, setOpenModal] = useState(null);
+  const params = useParams();
+
+  const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
+  const selectedProduct = useSelector(selectProductById);
+
   const {
     register,
     handleSubmit,
@@ -25,9 +30,13 @@ function ProductForm() {
     reset,
     formState: { errors },
   } = useForm();
-  const dispatch = useDispatch();
-  const params = useParams();
-  const selectedProduct = useSelector(selectProductById);
+
+  const handleDelete = () => {
+    const product = { ...selectedProduct };
+    product.deleted = true;
+    dispatch(updateProductAsync(product));
+  };
+
   useEffect(() => {
     if (params.id) {
       dispatch(fetchProductByIdAsync(params.id));
@@ -35,6 +44,7 @@ function ProductForm() {
       dispatch(clearSelectedProduct());
     }
   }, [dispatch, params.id]);
+
   useEffect(() => {
     if (selectedProduct && params.id) {
       setValue("title", selectedProduct.title);
@@ -50,11 +60,7 @@ function ProductForm() {
       setValue("category", selectedProduct.category);
     }
   }, [selectedProduct, params.id, setValue]);
-  const handleDelete = () => {
-    const product = { ...selectedProduct };
-    product.deleted = true;
-    dispatch(updateProductAsync(product));
-  };
+
   return (
     <>
       <form
@@ -91,7 +97,6 @@ function ProductForm() {
             <h2 className="text-base font-semibold leading-7 text-gray-900">
               Add Product
             </h2>
-
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               {selectedProduct?.deleted && (
                 <h2 className="text-red-500 sm:col-span-6">
@@ -118,7 +123,6 @@ function ProductForm() {
                   </div>
                 </div>
               </div>
-
               <div className="col-span-full">
                 <label
                   htmlFor="description"
@@ -156,7 +160,9 @@ function ProductForm() {
                   >
                     <option value="">Choose Brand</option>
                     {brands.map((brand) => (
-                      <option value={brand.value}>{brand.label}</option>
+                      <option key={brand.value} value={brand.value}>
+                        {brand.label}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -176,12 +182,13 @@ function ProductForm() {
                   >
                     <option value="">Choose Category</option>
                     {categories.map((category) => (
-                      <option value={category.value}>{category.label}</option>
+                      <option key={category.value} value={category.value}>
+                        {category.label}
+                      </option>
                     ))}
                   </select>
                 </div>
               </div>
-
               <div className="sm:col-span-2">
                 <label
                   htmlFor="price"
@@ -329,12 +336,10 @@ function ProductForm() {
               </div>
             </div>
           </div>
-
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">
               Extra
             </h2>
-
             <div className="mt-10 space-y-10">
               <fieldset>
                 <legend className="text-sm font-semibold leading-6 text-gray-900">
@@ -410,7 +415,6 @@ function ProductForm() {
             </div>
           </div>
         </div>
-
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="button"
@@ -418,7 +422,6 @@ function ProductForm() {
           >
             Cancel
           </button>
-
           {selectedProduct && !selectedProduct.deleted && (
             <button
               onClick={(e) => {

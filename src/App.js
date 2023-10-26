@@ -107,16 +107,28 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "order-success/:id",
-    element: <OrderSuccesPage></OrderSuccesPage>,
+    path: "/order-success/:id",
+    element: (
+      <Protected>
+        <OrderSuccesPage></OrderSuccesPage>
+      </Protected>
+    ),
   },
   {
     path: "/orders",
-    element: <UserOrdersPage></UserOrdersPage>,
+    element: (
+      <Protected>
+        <UserOrdersPage></UserOrdersPage>
+      </Protected>
+    ),
   },
   {
     path: "/profile",
-    element: <UserProfilePage></UserProfilePage>,
+    element: (
+      <Protected>
+        <UserProfilePage></UserProfilePage>
+      </Protected>
+    ),
   },
   {
     path: "/logout",
@@ -140,12 +152,14 @@ const options = {
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+
   useEffect(() => {
     if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id));
       dispatch(fetchLoggedInUserAsync(user.id));
     }
   }, [dispatch, user]);
+
   return (
     <div className="App">
       <Provider template={AlertTemplate} {...options}>

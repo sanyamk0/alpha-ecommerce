@@ -35,16 +35,18 @@ function classNames(...classes) {
 }
 
 export default function ProductList() {
+  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [page, setPage] = useState(1);
+
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
-  const [filter, setFilter] = useState({});
-  const [sort, setSort] = useState({});
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [page, setPage] = useState(1);
+
   const filters = [
     {
       id: "category",
@@ -75,10 +77,12 @@ export default function ProductList() {
     }
     setFilter(newFilter);
   };
+
   const handleSort = (e, option) => {
     const sort = { _sort: option.sort, _order: option.order };
     setSort(sort);
   };
+
   const handlePage = (page) => {
     setPage(page);
   };
@@ -97,6 +101,7 @@ export default function ProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, [dispatch]);
+
   return (
     <div className="bg-white">
       <div>
@@ -111,7 +116,6 @@ export default function ProductList() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               All Products
             </h1>
-
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
@@ -123,7 +127,6 @@ export default function ProductList() {
                     />
                   </Menu.Button>
                 </div>
-
                 <Transition
                   as={Fragment}
                   enter="transition ease-out duration-100"
@@ -157,7 +160,6 @@ export default function ProductList() {
                   </Menu.Items>
                 </Transition>
               </Menu>
-
               <button
                 type="button"
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
@@ -227,7 +229,6 @@ function MobileFilter({
         >
           <div className="fixed inset-0 bg-black bg-opacity-25" />
         </Transition.Child>
-
         <div className="fixed inset-0 z-40 flex">
           <Transition.Child
             as={Fragment}
@@ -250,7 +251,6 @@ function MobileFilter({
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-
               {/* Filters */}
               <form className="mt-4 border-t border-gray-200">
                 {filters.map((section) => (

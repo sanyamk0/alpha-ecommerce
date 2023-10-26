@@ -18,41 +18,6 @@ const initialState = {
   selectedProduct: null,
 };
 
-export const fetchAllProductsAsync = createAsyncThunk(
-  "product/fetchAllProducts",
-  async () => {
-    const response = await fetchAllProducts();
-    return response.data;
-  }
-);
-export const fetchProductByIdAsync = createAsyncThunk(
-  "product/fetchProductById",
-  async (id) => {
-    const response = await fetchProductById(id);
-    return response.data;
-  }
-);
-export const fetchProductsByFiltersAsync = createAsyncThunk(
-  "product/fetchProductsByFilters",
-  async ({ filter, sort, pagination }) => {
-    const response = await fetchProductsByFilters(filter, sort, pagination);
-    return response.data;
-  }
-);
-export const fetchBrandsAsync = createAsyncThunk(
-  "product/fetchBrands",
-  async () => {
-    const response = await fetchBrands();
-    return response.data;
-  }
-);
-export const fetchCategoriesAsync = createAsyncThunk(
-  "product/fetchCategories",
-  async () => {
-    const response = await fetchCategories();
-    return response.data;
-  }
-);
 export const createProductAsync = createAsyncThunk(
   "product/createProduct",
   async (product) => {
@@ -60,6 +25,47 @@ export const createProductAsync = createAsyncThunk(
     return response.data;
   }
 );
+
+export const fetchAllProductsAsync = createAsyncThunk(
+  "product/fetchAllProducts",
+  async () => {
+    const response = await fetchAllProducts();
+    return response.data;
+  }
+);
+
+export const fetchProductByIdAsync = createAsyncThunk(
+  "product/fetchProductById",
+  async (id) => {
+    const response = await fetchProductById(id);
+    return response.data;
+  }
+);
+
+export const fetchProductsByFiltersAsync = createAsyncThunk(
+  "product/fetchProductsByFilters",
+  async ({ filter, sort, pagination }) => {
+    const response = await fetchProductsByFilters(filter, sort, pagination);
+    return response.data;
+  }
+);
+
+export const fetchCategoriesAsync = createAsyncThunk(
+  "product/fetchCategories",
+  async () => {
+    const response = await fetchCategories();
+    return response.data;
+  }
+);
+
+export const fetchBrandsAsync = createAsyncThunk(
+  "product/fetchBrands",
+  async () => {
+    const response = await fetchBrands();
+    return response.data;
+  }
+);
+
 export const updateProductAsync = createAsyncThunk(
   "product/updateProduct",
   async (update) => {
@@ -76,15 +82,28 @@ export const productSlice = createSlice({
       state.selectedProduct = null;
     },
   },
-
   extraReducers: (builder) => {
     builder
+      .addCase(createProductAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(createProductAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.products.push(action.payload);
+      })
       .addCase(fetchAllProductsAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.products = action.payload;
+      })
+      .addCase(fetchProductByIdAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.selectedProduct = action.payload;
       })
       .addCase(fetchProductsByFiltersAsync.pending, (state) => {
         state.status = "loading";
@@ -94,13 +113,6 @@ export const productSlice = createSlice({
         state.products = action.payload.products;
         state.totalItems = action.payload.totalItems;
       })
-      .addCase(fetchBrandsAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.brands = action.payload;
-      })
       .addCase(fetchCategoriesAsync.pending, (state) => {
         state.status = "loading";
       })
@@ -108,19 +120,12 @@ export const productSlice = createSlice({
         state.status = "idle";
         state.categories = action.payload;
       })
-      .addCase(fetchProductByIdAsync.pending, (state) => {
+      .addCase(fetchBrandsAsync.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
+      .addCase(fetchBrandsAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.selectedProduct = action.payload;
-      })
-      .addCase(createProductAsync.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(createProductAsync.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.products.push(action.payload);
+        state.brands = action.payload;
       })
       .addCase(updateProductAsync.pending, (state) => {
         state.status = "loading";

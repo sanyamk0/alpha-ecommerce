@@ -1,8 +1,5 @@
-import React, { useState, Fragment } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
 export default function Order() {
-  const dispatch = useDispatch();
-
   return <></>;
 }

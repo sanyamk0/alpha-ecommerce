@@ -39,21 +39,25 @@ function classNames(...classes) {
 }
 
 export default function AdminProductDetail() {
-  const dispatch = useDispatch();
-  const params = useParams();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
+  const params = useParams();
+
+  const dispatch = useDispatch();
   const product = useSelector(selectProductById);
   const user = useSelector(selectLoggedInUser);
+
   const handleCart = (e) => {
     e.preventDefault();
     const newItem = { ...product, quantity: 1, user: user.id };
     delete newItem["id"];
     dispatch(addToCartAsync(newItem));
   };
+
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
   }, [dispatch, params.id]);
+
   return (
     <div className="bg-white">
       {product && (
@@ -97,7 +101,6 @@ export default function AdminProductDetail() {
               </li>
             </ol>
           </nav>
-
           {/* Image gallery */}
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
@@ -131,7 +134,6 @@ export default function AdminProductDetail() {
               />
             </div>
           </div>
-
           {/* Product info */}
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -139,7 +141,6 @@ export default function AdminProductDetail() {
                 {product.title}
               </h1>
             </div>
-
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
@@ -149,7 +150,6 @@ export default function AdminProductDetail() {
               <p className="text-3xl tracking-tight text-gray-900">
                 ${discountedPrice(product)}
               </p>
-
               {/* Reviews */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>
@@ -171,12 +171,10 @@ export default function AdminProductDetail() {
                   <p className="sr-only">{product.rating} out of 5 stars</p>
                 </div>
               </div>
-
               <form className="mt-10">
                 {/* Colors */}
                 <div>
                   <h3 className="text-sm font-medium text-gray-900">Color</h3>
-
                   <RadioGroup
                     value={selectedColor}
                     onChange={setSelectedColor}
@@ -214,7 +212,6 @@ export default function AdminProductDetail() {
                     </div>
                   </RadioGroup>
                 </div>
-
                 {/* Sizes */}
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
@@ -226,7 +223,6 @@ export default function AdminProductDetail() {
                       Size guide
                     </a>
                   </div>
-
                   <RadioGroup
                     value={selectedSize}
                     onChange={setSelectedSize}
@@ -295,7 +291,6 @@ export default function AdminProductDetail() {
                     </div>
                   </RadioGroup>
                 </div>
-
                 <button
                   onClick={handleCart}
                   type="submit"
@@ -305,24 +300,20 @@ export default function AdminProductDetail() {
                 </button>
               </form>
             </div>
-
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
               {/* Description and details */}
               <div>
                 <h3 className="sr-only">Description</h3>
-
                 <div className="space-y-6">
                   <p className="text-base text-gray-900">
                     {product.description}
                   </p>
                 </div>
               </div>
-
               <div className="mt-10">
                 <h3 className="text-sm font-medium text-gray-900">
                   Highlights
                 </h3>
-
                 <div className="mt-4">
                   <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                     {highlights.map((highlight) => (
@@ -333,10 +324,8 @@ export default function AdminProductDetail() {
                   </ul>
                 </div>
               </div>
-
               <div className="mt-10">
                 <h2 className="text-sm font-medium text-gray-900">Details</h2>
-
                 <div className="mt-4 space-y-6">
                   <p className="text-sm text-gray-600">{product.description}</p>
                 </div>

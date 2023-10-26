@@ -11,9 +11,11 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const user = useSelector(selectLoggedInUser);
+
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
@@ -24,7 +26,6 @@ export default function Login() {
             Log in to your account
           </h2>
         </div>
-
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
@@ -60,7 +61,6 @@ export default function Login() {
                 )}
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -90,7 +90,6 @@ export default function Login() {
                 {error && <p className="text-red-500">{error.message}</p>}
               </div>
             </div>
-
             <div>
               <button
                 type="submit"
@@ -100,7 +99,6 @@ export default function Login() {
               </button>
             </div>
           </form>
-
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
             <Link

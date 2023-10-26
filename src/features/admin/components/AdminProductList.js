@@ -34,15 +34,17 @@ function classNames(...classes) {
 }
 
 export default function AdminProductList() {
+  const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [page, setPage] = useState(1);
+
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
-  const [filter, setFilter] = useState({});
-  const [sort, setSort] = useState({});
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [page, setPage] = useState(1);
+
   const filters = [
     {
       id: "category",
@@ -73,10 +75,12 @@ export default function AdminProductList() {
     }
     setFilter(newFilter);
   };
+
   const handleSort = (e, option) => {
     const sort = { _sort: option.sort, _order: option.order };
     setSort(sort);
   };
+
   const handlePage = (page) => {
     setPage(page);
   };
@@ -94,6 +98,7 @@ export default function AdminProductList() {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
   }, [dispatch]);
+
   return (
     <div className="bg-white">
       <div>
@@ -108,7 +113,6 @@ export default function AdminProductList() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               All Products
             </h1>
-
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
@@ -120,7 +124,6 @@ export default function AdminProductList() {
                     />
                   </Menu.Button>
                 </div>
-
                 <Transition
                   as={Fragment}
                   enter="transition ease-out duration-100"
@@ -154,7 +157,6 @@ export default function AdminProductList() {
                   </Menu.Items>
                 </Transition>
               </Menu>
-
               <button
                 type="button"
                 className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
@@ -232,7 +234,6 @@ function MobileFilter({
         >
           <div className="fixed inset-0 bg-black bg-opacity-25" />
         </Transition.Child>
-
         <div className="fixed inset-0 z-40 flex">
           <Transition.Child
             as={Fragment}
@@ -255,7 +256,6 @@ function MobileFilter({
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-
               {/* Filters */}
               <form className="mt-4 border-t border-gray-200">
                 {filters.map((section) => (
@@ -381,7 +381,6 @@ function DesktopFilter({ handleFilter, filters }) {
     </form>
   );
 }
-
 function Pagination({ page, setPage, handlePage, totalItems }) {
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
   return (
@@ -431,6 +430,7 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
             {Array.from({ length: totalPages }).map((el, index) => (
               <div
+                key={index}
                 onClick={(e) => handlePage(index + 1)}
                 aria-current="page"
                 className={`relative cursor-pointer z-10 inline-flex items-center ${
@@ -442,7 +442,6 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
                 {index + 1}
               </div>
             ))}
-
             <div
               onClick={(e) => handlePage(page < totalPages ? page + 1 : page)}
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
@@ -462,9 +461,8 @@ function ProductGrid({ products }) {
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <div>
-              {" "}
-              <Link to={`/product-detail/${product.id}`} key={product.id}>
+            <div key={product.id}>
+              <Link to={`/product-detail/${product.id}`}>
                 <div className="group relative border-solid border-2 p-2 border-gray-200">
                   <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                     <img

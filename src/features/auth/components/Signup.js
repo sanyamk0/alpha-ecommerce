@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 export default function Signup() {
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
@@ -23,7 +25,6 @@ export default function Signup() {
             Create a New Account
           </h2>
         </div>
-
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
@@ -65,7 +66,6 @@ export default function Signup() {
                 )}
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -132,7 +132,6 @@ export default function Signup() {
               </button>
             </div>
           </form>
-
           <p className="mt-10 text-center text-sm text-gray-500">
             Already a Member?{" "}
             <Link
