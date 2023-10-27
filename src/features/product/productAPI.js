@@ -10,15 +10,6 @@ export function createProduct(product) {
   });
 }
 
-export function fetchAllProducts() {
-  //TODO: We will not hard-code server URL
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/products");
-    const data = await response.json();
-    resolve({ data });
-  });
-}
-
 export function fetchProductById(id) {
   //TODO: We will not hard-code server URL
   return new Promise(async (resolve) => {
@@ -28,7 +19,7 @@ export function fetchProductById(id) {
   });
 }
 
-export function fetchProductsByFilters(filter, sort, pagination) {
+export function fetchProductsByFilters(filter, sort, pagination, admin) {
   // filter = { category: ["smartphone", "laptops"] };
   // sort = { _sort: "price", _order: "desc" };
   // pagination = { _page: 1, _limit: 10 };
@@ -47,6 +38,9 @@ export function fetchProductsByFilters(filter, sort, pagination) {
   }
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
+  }
+  if (admin) {
+    queryString += `admin=true`;
   }
   //ToDO: We will not hard-code server URL
   return new Promise(async (resolve) => {
