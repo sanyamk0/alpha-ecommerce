@@ -8,7 +8,6 @@ import {
   selectProductListStatus,
 } from "../productSlice";
 import { useParams } from "react-router-dom";
-import { selectLoggedInUser } from "../../auth/authSlice";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { discountedPrice } from "../../../app/constants";
 import { useAlert } from "react-alert";
@@ -49,7 +48,6 @@ export default function ProductDetail() {
 
   const dispatch = useDispatch();
   const product = useSelector(selectProductById);
-  const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectItems);
   const status = useSelector(selectProductListStatus);
 
@@ -59,7 +57,6 @@ export default function ProductDetail() {
       const newItem = {
         product: product.id,
         quantity: 1,
-        user: user.id,
       };
       dispatch(addToCartAsync(newItem));
       //TODO:it will be based on server response of backend

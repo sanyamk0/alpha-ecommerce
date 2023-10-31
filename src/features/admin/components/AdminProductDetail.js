@@ -7,7 +7,6 @@ import {
   selectProductById,
 } from "../../product/productSlice";
 import { useParams } from "react-router-dom";
-import { selectLoggedInUser } from "../../auth/authSlice";
 import { addToCartAsync } from "../../cart/cartSlice";
 import { discountedPrice } from "../../../app/constants";
 
@@ -45,11 +44,9 @@ export default function AdminProductDetail() {
 
   const dispatch = useDispatch();
   const product = useSelector(selectProductById);
-  const user = useSelector(selectLoggedInUser);
-
   const handleCart = (e) => {
     e.preventDefault();
-    const newItem = { ...product, quantity: 1, user: user.id };
+    const newItem = { ...product, quantity: 1 };
     delete newItem["id"];
     dispatch(addToCartAsync(newItem));
   };

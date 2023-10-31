@@ -155,8 +155,8 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchItemsByUserIdAsync(user.id));
-      dispatch(fetchLoggedInUserAsync(user.id));
+      dispatch(fetchItemsByUserIdAsync()); //We can get req.user by token on backend so no need to give in frontend
+      dispatch(fetchLoggedInUserAsync());
     }
   }, [dispatch, user]);
 
