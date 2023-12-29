@@ -11,7 +11,6 @@ export function addToCart(item) {
 }
 
 export function fetchItemsByUserId() {
-  //TODO: We will not hard-code server URL
   return new Promise(async (resolve) => {
     const response = await fetch("/cart");
     const data = await response.json();

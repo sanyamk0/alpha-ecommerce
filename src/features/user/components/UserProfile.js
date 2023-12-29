@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 export default function UserProfile() {
-  //TODO:we will add payment section when we work on backend
   const {
     register,
     handleSubmit,

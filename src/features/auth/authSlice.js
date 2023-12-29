@@ -53,7 +53,6 @@ export const resetPasswordRequestAsync = createAsyncThunk(
       const response = await resetPasswordRequest(email);
       return response.data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error);
     }
   }
@@ -64,10 +63,8 @@ export const resetPasswordAsync = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await resetPassword(data);
-      console.log(response);
       return response.data;
     } catch (error) {
-      console.log(error);
       return rejectWithValue(error);
     }
   }

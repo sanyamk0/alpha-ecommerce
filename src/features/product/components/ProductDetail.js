@@ -9,20 +9,12 @@ import {
 } from "../productSlice";
 import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
-import { discountedPrice } from "../../../app/constants";
 import { useAlert } from "react-alert";
 import { Grid } from "react-loader-spinner";
 
-const highlights = [
-  "Hand cut and sewn locally",
-  "Dyed with our proprietary colors",
-  "Pre-washed & pre-shrunk",
-  "Ultra-soft 100% cotton",
-];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-// TODO : Loading UI
 
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState();
@@ -36,7 +28,6 @@ export default function ProductDetail() {
   const handleCart = (e) => {
     e.preventDefault();
     if (items.findIndex((item) => item.product.id === product.id) < 0) {
-      console.log({ items, product });
       const newItem = {
         product: product.id,
         quantity: 1,
@@ -47,9 +38,7 @@ export default function ProductDetail() {
       if (selectedSize) {
         newItem.size = selectedSize;
       }
-      dispatch(addToCartAsync(newItem));
-      // TODO: it will be based on server response of backend
-      alert.success("Item added to Cart");
+      dispatch(addToCartAsync({ item: newItem, alert }));
     } else {
       alert.error("Item Already added");
     }
@@ -156,7 +145,7 @@ export default function ProductDetail() {
                 ${product.price}
               </p>
               <p className="text-3xl tracking-tight text-gray-900">
-                ${discountedPrice(product)}
+                ${product.discountPrice}
               </p>
               {/* Reviews */}
               <div className="mt-6">
