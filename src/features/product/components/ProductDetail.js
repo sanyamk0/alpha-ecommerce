@@ -38,7 +38,8 @@ export default function ProductDetail() {
       if (selectedSize) {
         newItem.size = selectedSize;
       }
-      dispatch(addToCartAsync({ item: newItem, alert }));
+      dispatch(addToCartAsync(newItem));
+      alert.success("Item Added to Cart");
     } else {
       alert.error("Item Already added");
     }
