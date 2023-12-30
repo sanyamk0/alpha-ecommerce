@@ -23,7 +23,6 @@ import Logout from "./features/auth/components/Logout";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ProtectedAdmin from "./features/auth/components/ProtectedAdmin";
 import AdminHome from "./pages/AdminHome";
-import AdminProductDetailPage from "./pages/AdminProductDetailPage";
 import AdminProductFormPage from "./pages/AdminProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
 import { positions, Provider } from "react-alert";
@@ -78,14 +77,6 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailPage></ProductDetailPage>
       </Protected>
-    ),
-  },
-  {
-    path: "/admin/product-detail/:id",
-    element: (
-      <ProtectedAdmin>
-        <AdminProductDetailPage></AdminProductDetailPage>
-      </ProtectedAdmin>
     ),
   },
   {

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchLoggedInUserOrdersAsync,
+  selectUserInfo,
   selectUserInfoStatus,
   selectUserOrders,
 } from "../userSlice";
@@ -11,6 +12,7 @@ export default function UserOrders() {
   const dispatch = useDispatch();
   const orders = useSelector(selectUserOrders);
   const status = useSelector(selectUserInfoStatus);
+  const userInfo = useSelector(selectUserInfo);
 
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync());
@@ -49,9 +51,15 @@ export default function UserOrders() {
                                     {item.product.title}
                                   </a>
                                 </h3>
-                                <p className="ml-4">
-                                  ${item.product.discountPrice}
-                                </p>
+                                {userInfo.role === "premium" ? (
+                                  <p className="ml-4">
+                                    ${item.product.premiumPrice}
+                                  </p>
+                                ) : (
+                                  <p className="ml-4">
+                                    ${item.product.discountPrice}
+                                  </p>
+                                )}
                               </div>
                               <p className="mt-1 text-sm text-gray-500">
                                 {item.product.brand}

@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { useAlert } from "react-alert";
 import { Grid } from "react-loader-spinner";
+import { selectUserInfo } from "../../user/userSlice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -25,6 +26,7 @@ export default function ProductDetail() {
   const params = useParams();
   const alert = useAlert();
   const status = useSelector(selectProductListStatus);
+  const userInfo = useSelector(selectUserInfo);
   const handleCart = (e) => {
     e.preventDefault();
     if (items.findIndex((item) => item.product.id === product.id) < 0) {
@@ -145,9 +147,15 @@ export default function ProductDetail() {
               <p className="text-xl line-through tracking-tight text-gray-900">
                 ${product.price}
               </p>
-              <p className="text-3xl tracking-tight text-gray-900">
-                ${product.discountPrice}
-              </p>
+              {userInfo.role === "premium" ? (
+                <p className="text-3xl tracking-tight text-gray-900">
+                  ${product.premiumPrice}
+                </p>
+              ) : (
+                <p className="text-3xl tracking-tight text-gray-900">
+                  ${product.discountPrice}
+                </p>
+              )}
               {/* Reviews */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>

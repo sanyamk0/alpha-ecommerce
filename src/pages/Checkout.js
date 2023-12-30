@@ -25,11 +25,18 @@ function Checkout() {
   const items = useSelector(selectItems);
   const status = useSelector(selectStatus);
   const currentOrder = useSelector(selectCurrentOrder);
+  const userInfo = useSelector(selectUserInfo);
 
-  const totalAmount = items.reduce(
-    (amount, item) => item.product.discountPrice * item.quantity + amount,
-    0
-  );
+  const totalAmount =
+    userInfo.role === "premium"
+      ? items.reduce(
+          (amount, item) => item.product.premiumPrice * item.quantity + amount,
+          0
+        )
+      : items.reduce(
+          (amount, item) => item.product.discountPrice * item.quantity + amount,
+          0
+        );
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const handleQuantity = (e, item) => {
@@ -383,9 +390,15 @@ function Checkout() {
                                     {item.product.title}
                                   </a>
                                 </h3>
-                                <p className="ml-4">
-                                  ${item.product.discountPrice}
-                                </p>
+                                {userInfo.role === "premium" ? (
+                                  <p className="ml-4">
+                                    ${item.product.premiumPrice}
+                                  </p>
+                                ) : (
+                                  <p className="ml-4">
+                                    ${item.product.discountPrice}
+                                  </p>
+                                )}
                               </div>
                               <p className="mt-1 text-sm text-gray-500">
                                 {item.product.brand}

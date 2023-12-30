@@ -24,6 +24,8 @@ import {
 import { ITEMS_PER_PAGE } from "../../../app/constants";
 import Pagination from "../../common/Pagination";
 import { Grid } from "react-loader-spinner";
+import { selectUserInfo } from "../../user/userSlice";
+
 const sortOptions = [
   { name: "Best Rating", sort: "rating", order: "desc", current: false },
   {
@@ -56,6 +58,7 @@ export default function ProductList() {
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
+  const userInfo = useSelector(selectUserInfo);
 
   const filters = [
     {
@@ -196,7 +199,11 @@ export default function ProductList() {
               ></DesktopFilter>
               {/* Product grid */}
               <div className="lg:col-span-3">
-                <ProductGrid products={products} status={status}></ProductGrid>
+                <ProductGrid
+                  products={products}
+                  status={status}
+                  userInfo={userInfo}
+                ></ProductGrid>
               </div>
               {/* Product grid ends */}
             </div>
@@ -384,7 +391,7 @@ function DesktopFilter({ handleFilter, filters }) {
     </form>
   );
 }
-function ProductGrid({ products, status }) {
+function ProductGrid({ products, status, userInfo }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
@@ -425,9 +432,15 @@ function ProductGrid({ products, status }) {
                     </p>
                   </div>
                   <div>
-                    <p className="text-sm block font-medium text-gray-900">
-                      ${product.discountPrice}
-                    </p>
+                    {userInfo.role === "premium" ? (
+                      <p className="text-sm block font-medium text-gray-900">
+                        ${product.premiumPrice}
+                      </p>
+                    ) : (
+                      <p className="text-sm block font-medium text-gray-900">
+                        ${product.discountPrice}
+                      </p>
+                    )}
                     <p className="text-sm block line-through font-medium text-gray-400">
                       ${product.price}
                     </p>
